@@ -56,7 +56,7 @@ module.exports = app => {
             }, 'seconds');
 
             const filtered = _.filter(sorted, (result) => {
-                return new Date(result.created) < medianDate;
+                return new Date(result.created) <= medianDate;
             });
 
             res.json({
