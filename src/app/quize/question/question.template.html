@@ -1,0 +1,28 @@
+<div class="question">
+    <div class="question-icon" *ngIf="id === 15">
+        <i class="fa fa-question-circle-o icon-gamer" aria-hidden="true"></i>
+    </div>
+
+    {{ text }}
+</div>
+
+<div
+    *ngFor="let variant of variants"
+    class="option"
+    (click)="variant.select()"
+    [ngClass]="{ selected: variant.selected }"
+>
+    <img class="option__icon" [src]="'/img/' + type + '-' + (variant.selected ? 'selected' : 'empty') + '.svg'">
+    <div class="option__text">
+        {{ variant.text }}
+    </div>
+</div>
+
+<button
+    type="button"
+    class="button bad_class commit-btn"
+    (click)="commit()"
+    [disabled]="!hasSelected()"
+>
+    Commit
+</button>

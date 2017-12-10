@@ -1,0 +1,23 @@
+<div *ngIf="isRight !== null" class='alert' [ngClass]="{'alert-success': isRight, 'alert-danger': !isRight}">
+    <h5><b> Last Result: </b> </h5>
+
+    <div class="text text-lg"> {{ points }} </div>
+
+    <div> {{ (isRight ? "Well done!" : "Something wrong..") }} </div>
+
+    <div *ngIf="!isRight">
+
+        <div> {{ answer.description }} </div>
+
+        <h5> <b> Answers: </b> </h5>
+
+        <ul>
+            <li class="float-left" *ngFor="let variant of answer.rightVariants"> {{ variant.text }}
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div *ngIf="isRight === null" class='alert alert-info'>
+    <div> It's your first questrion - pluck up courage.</div>
+</div>

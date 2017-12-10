@@ -1,0 +1,68 @@
+:host {
+    display: block;
+    background: url('/img/background.svg') no-repeat bottom 70px center fixed;
+    background-size: 1920px auto;
+    font-family: MuseoSans !important;
+    height: 100vh;
+}
+
+.logo {
+    background: #333;
+
+    img {
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    }
+}
+
+.header__logo {
+  position: absolute;
+  top: 70px;
+  left: 15px;
+
+  @media (max-width: 1200px) {
+    width: 200px;
+    top: 50px;
+  }
+}
+
+a {
+    display: block;
+    width: 160px;
+    height: 50px;
+    color: #006d5c;
+    background-color: #fff;
+    font-size: 24px;
+    text-decoration: underline;
+    text-align: center;
+    font-weight: bold;
+    border: none;
+    margin-bottom: 35px;
+    margin-left: 20px;
+
+    &:hover {
+        color: #005446;
+    }
+}
+
+main {
+  height: calc(100vh - 160px);
+  box-sizing: border-box;
+  max-width: 700px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 5px;
+  display: block;
+
+  @media (max-width: 1200px) {
+    margin-top: 50px;
+  }
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}

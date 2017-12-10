@@ -1,0 +1,65 @@
+body {
+  margin: 0;
+  overflow: hidden; }
+
+.button {
+  width: 340px;
+  height: 60px;
+  background-color: #006d5c;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: none;
+  text-transform: uppercase;
+  cursor: pointer; }
+  .button_size_350 {
+    width: 350px; }
+  .button:hover {
+    background-color: #005446; }
+  .button.shy-btn, .button.red-btn {
+    background: #d34d42; }
+    .button.shy-btn:hover, .button.red-btn:hover {
+      background: #D34D23; }
+    .button.shy-btn:disabled, .button.red-btn:disabled {
+      background: #d4736b; }
+  .button:disabled, .button:disabled:hover {
+    cursor: default;
+    background: #ccc; }
+
+.santa-art {
+  display: none;
+  background-repeat: no-repeat;
+  height: 110px;
+  width: 50px;
+  background-image: url("/img/art.png");
+  position: absolute;
+  right: 50px;
+  bottom: -10px; }
+
+@font-face {
+  font-family: "MuseoSans";
+  src: url("/fonts/museosanscyrl-300-pub.woff2") format("woff2"), url("/fonts/museosanscyrl-300-pub.woff") format("woff"), url("/fonts/museosanscyrl-300-pub.ttf") format("ttf"), url("/fonts/museosanscyrl-300-pub.eot") format("eot"), url("/fonts/museosanscyrl-300-pub.eot?#iefix") format("embedded-opentype"), url("/fonts/museosanscyrl-300-pub.svg#${font-file}") format("svg");
+  font-weight: 300;
+  font-style: normal; }
+
+@font-face {
+  font-family: "MuseoSans";
+  src: url("/fonts/museosanscyrl-500-pub.woff2") format("woff2"), url("/fonts/museosanscyrl-500-pub.woff") format("woff"), url("/fonts/museosanscyrl-500-pub.ttf") format("ttf"), url("/fonts/museosanscyrl-500-pub.eot") format("eot"), url("/fonts/museosanscyrl-500-pub.eot?#iefix") format("embedded-opentype"), url("/fonts/museosanscyrl-500-pub.svg#${font-file}") format("svg");
+  font-weight: 500;
+  font-style: bold; }
+
+@font-face {
+  font-family: "MuseoSans";
+  src: url("/fonts/museosanscyrl-900-pub.woff2") format("woff2"), url("/fonts/museosanscyrl-900-pub.woff") format("woff"), url("/fonts/museosanscyrl-900-pub.ttf") format("ttf"), url("/fonts/museosanscyrl-900-pub.eot") format("eot"), url("/fonts/museosanscyrl-900-pub.eot?#iefix") format("embedded-opentype"), url("/fonts/museosanscyrl-900-pub.svg#${font-file}") format("svg");
+  font-weight: 900;
+  font-style: bolder; }
+
+@media screen and (max-width: 700px) and (min-width: 650px) and (aspect-ratio: 1 / 1) {
+  body {
+    background: black; }
+  .santa-art {
+    display: block; } }

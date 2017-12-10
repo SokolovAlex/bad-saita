@@ -1,0 +1,54 @@
+$triangle-size: 30px;
+
+.saita {
+  width: 219px;
+  height: 308px;
+  position: absolute;
+  bottom: 88px;
+  right: 50px;
+
+  &.is-hover &__bubble {
+    display: none;
+  }
+
+  &.is-hover:hover &__bubble.is-2 {
+    display: block;
+  }
+
+  &__img {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+
+  &__bubble {
+    width: 270px;
+    background-color: #62c8d0;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.25;
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    bottom: 350px;
+    right: 50px;
+    padding: 40px;
+    border-radius: 20px;
+    box-sizing: border-box;
+
+    &:not(:first-child) {
+      display: none;
+    }
+
+    &::after {
+      content: '';
+      width: 0;
+      height: 0;
+      border-top: $triangle-size solid #62c8d0;
+      border-left: $triangle-size solid transparent;
+      bottom: -$triangle-size;
+      position: absolute;
+      left: 100px;
+    }
+  }
+}

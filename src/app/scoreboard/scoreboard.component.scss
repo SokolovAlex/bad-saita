@@ -1,0 +1,90 @@
+$black: #333;
+$gray: #ccc;
+
+.scoreboard {
+  width: 100%;
+  background: #fff;
+  border: solid 2px #ccc;
+  margin-top: 30px;
+
+  &__title {
+    font-size: 64px;
+    font-weight: 900;
+    text-align: center;
+    color: $black;
+    padding: 20px;
+  }
+
+  &__score {
+    &_bad {
+      color: #af3f35;
+    }
+
+    &_good {
+      color: #00a88e;
+    }
+
+    &_normal {
+      color: #d99529;
+    }
+  }
+
+  &__wrapper {
+    display: block;
+    width: 100%;
+    border-top: solid 2px $gray;
+    overflow-y: auto;
+    height: 650px;
+    max-height: calc(100vh - 250px);
+  }
+
+  &__table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  &__row {
+    height: 65px;
+    box-sizing: border-box;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 2.5;
+    text-align: left;
+    color: $black;
+
+    &:nth-child(even) {
+      background-color: #edf6fa;
+    }
+  }
+
+  &__col,
+  &__index,
+  &__points,
+  &__time {
+    padding: 7.5px 20px;
+  }
+
+  &__col {
+    overflow: hidden;
+    max-width: 380px;
+    text-overflow: ellipsis;
+  }
+
+  &__index {
+    width: 50px;
+    text-align: center;
+  }
+
+  &__points {
+    width: 50px;
+    font-weight: 900;
+    color: #b0ccd8;
+    text-align: right;
+  }
+
+  &__time {
+    width: 75px;
+    font-weight: 900;
+    color: #5c8797;
+  }
+}

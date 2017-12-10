@@ -1,0 +1,30 @@
+<header class="header">
+    <a href="/">
+        <img class="header__logo" src="/img/bad-saita.svg">
+    </a>
+    <my-progress *ngIf="gameStarted"></my-progress>
+    <quize-info *ngIf="!isScoreBoard"></quize-info>
+</header>
+
+<main>
+    <router-outlet></router-outlet>
+</main>
+
+<footer>
+    <a *ngIf="canGoToScoreBoard" href="/scoreboard">
+        Scoreboard
+    </a>
+
+    <my-saita
+        (mouseenter) ="speech = bestSite"
+        (mouseleave) ="speech = ''"
+        [isHoverable]="isHoverable()"
+        [speech]="customSpeach || (isHoverable() ? speech : '')"
+    ></my-saita>
+
+    <div class="logo">
+        <img src="/img/logo.svg">
+    </div>
+</footer>
+
+<elf (showSpeech)="onShowSpeach($event)"></elf>

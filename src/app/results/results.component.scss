@@ -1,0 +1,104 @@
+$gray: #ccc;
+$black: #333;
+
+:host {
+  position: relative;
+  display: block;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.results {
+  margin-top: 30px;
+
+  &__points,
+  &__time {
+    width: 100%;
+    position: absolute;
+    text-align: center;
+  }
+
+  &__score {
+    &_bad {
+      color: #af3f35;
+    }
+
+    &_good {
+      color: #00a88e;
+    }
+
+    &_normal {
+      color: #d99529;
+    }
+  }
+
+  &__points {
+    height: 87px;
+    font-size: 72px;
+    font-weight: 900;
+    color: #b0ccd8;
+    top: 130px;
+  }
+
+  &__time {
+    height: 57px;
+    font-size: 48px;
+    font-weight: 900;
+    color: #fff;
+    top: 268px;
+  }
+
+  &__input {
+    height: 60px;
+    width: 350px;
+    padding: 0 10px;
+    position: absolute;
+    bottom: 133px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    box-sizing: border-box;
+    box-shadow: 0 4px 0 0 rgba(0, 0, 0, 0.05);
+    border: solid 2px $gray;
+    color: $black;
+
+    &, &::placeholder {
+      font-size: 18px;
+      font-weight: bold;
+      line-height: 1.39;
+      text-align: left;
+    }
+
+    &::placeholder {
+      width: 265px;
+      height: 25px;
+      color: #999;
+    }
+  }
+
+  &__input-name {
+    bottom: 195px;
+  }
+
+  &__input-email {
+    bottom: 120px;
+  }
+
+  &__confirmation {
+    font-weight: 500;
+    font-size: 24px;
+    text-align: center;
+  }
+
+  &__button {
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    right: 0;
+  }
+}

@@ -1,0 +1,32 @@
+<div class="results">
+    <img src="/img/results.svg">
+
+    <div class="results__points">
+        <span class="results__score_{{ grade }}">{{ points }}</span>/{{ maxPoints }}
+    </div>
+
+    <div class="results__time">
+        {{ time }}
+    </div>
+
+    <input class="results__input results__input-name" [(ngModel)]="nickname" placeholder="Your name">
+
+    <input class="results__input results__input-email" [(ngModel)]="email" placeholder="Your e-mail">
+
+    <div class="results__button">
+        <button
+            *ngIf="!resultSaved"
+            class="button button_size_350"
+            (click)="sendResults()"
+            [disabled]="!nickname || !email"
+        >
+            Send
+        </button>
+
+        <div class="results__confirmation" *ngIf="resultSaved">
+            <div>See more about KL:</div>
+            <a href="https://careers.kaspersky.com">https://careers.kaspersky.com</a>
+        </div>
+
+    </div>
+</div>

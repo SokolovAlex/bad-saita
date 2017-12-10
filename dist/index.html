@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Bad Saita</title>
+    <link rel="icon" type="image/x-icon" href="/img/bad-saita.svg">
+
+    <base href="/">
+
+    <style>
+        .loader {
+            position: relative;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100vh;
+            align-items: center;
+        }
+
+        .loader__loader {
+            position: relative;
+            vertical-align: middle;
+            width: 64px;
+            stroke-width: 5;
+            stroke: #ffaa00;
+            margin: 0;
+        }
+
+        .loader__loader::before {
+            content: '';
+            display: block;
+            padding-top: 100%;
+        }
+
+        .loader__text {
+            position: relative;
+            margin-top: 20px;
+            display: block;
+            width: 100%;
+        }
+
+        .loader__circle {
+            animation: rotate 2s linear infinite;
+            height: 100%;
+            transform-origin: center center;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+
+        .loader__path {
+            stroke-dasharray: 50, 200;
+            stroke-dashoffset: 0;
+            stroke-width: inherit;
+            animation: dash 1.5s ease-in-out infinite;
+            stroke-linecap: round;
+            stroke: inherit;
+            fill: none;
+            stroke-miterlimit: 10;
+            cx: 50;
+            cy: 50;
+            r: 20;
+        }
+
+        @keyframes rotate {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes dash {
+            0% {
+                stroke-dasharray: 1, 200;
+                stroke-dashoffset: 0;
+            }
+
+            50% {
+                stroke-dasharray: 89, 200;
+                stroke-dashoffset: -35px;
+            }
+
+            100% {
+                stroke-dasharray: 89, 200;
+                stroke-dashoffset: -124px;
+            }
+        }
+    </style>
+<link href="/css/vendor.d5848422e1abbed46484.css" rel="stylesheet"></head>
+
+<body>
+    <my-app>
+        <div class="loader">
+            <div class="loader__loader">
+                <svg viewBox="25 25 50 50" class="loader__circle">
+                    <circle cx="50" cy="50" r="20" class="loader__path"></circle>
+                </svg>
+            </div>
+            <div class="loader__text">
+                Loading...
+            </div>
+        </div>
+    </my-app>
+<script type="text/javascript" src="/js/polyfills.d5848422e1abbed46484.js"></script><script type="text/javascript" src="/js/vendor.d5848422e1abbed46484.js"></script><script type="text/javascript" src="/js/app.d5848422e1abbed46484.js"></script></body>
+</html>

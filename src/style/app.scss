@@ -1,0 +1,97 @@
+body {
+    margin: 0;
+    overflow: hidden;
+}
+
+.button {
+    width: 340px;
+    height: 60px;
+    background-color: #006d5c;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    &_size_350 {
+        width: 350px;
+    }
+    &:hover {
+        background-color: #005446;
+    }
+    &.shy-btn,
+    &.red-btn {
+        background: rgb(211, 77, 66);
+        &:hover {
+            background: #D34D23;
+        }
+        &:disabled {
+            background: #d4736b;
+        }
+    }
+    &:disabled,
+    &:disabled:hover {
+        cursor: default;
+        background: #ccc;
+    }
+}
+
+.santa-art {
+    display: none;
+    background-repeat: no-repeat;
+    height: 110px;
+    width: 50px;
+    background-image: url('/img/art.png');
+    position: absolute;
+    right: 50px;
+    bottom: -10px;
+}
+
+@mixin font-face($font-name,
+$font-file,
+$font-weight,
+$font-style) {
+    font-family: $font-name;
+    src: url('/fonts/'+$font-file+'.woff2') format('woff2'),
+    url('/fonts/'+$font-file+'.woff') format('woff'),
+    url('/fonts/'+$font-file+'.ttf') format('ttf'),
+    url('/fonts/'+$font-file+'.eot') format('eot'),
+    url('/fonts/'+$font-file+'.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/'+$font-file+'.svg#${font-file}') format('svg');
+    font-weight: $font-weight;
+    font-style: $font-style;
+}
+
+@font-face {
+    @include font-face('MuseoSans',
+    'museosanscyrl-300-pub',
+    300,
+    normal);
+}
+
+@font-face {
+    @include font-face('MuseoSans',
+    'museosanscyrl-500-pub',
+    500,
+    bold);
+}
+
+@font-face {
+    @include font-face('MuseoSans',
+    'museosanscyrl-900-pub',
+    900,
+    bolder);
+}
+
+@media screen and (max-width: 700px) and (min-width: 650px) and (aspect-ratio: 1/1) {
+    body {
+        background: black;
+    }
+    .santa-art {
+        display: block;
+    }
+}

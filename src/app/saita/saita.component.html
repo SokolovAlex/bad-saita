@@ -1,0 +1,21 @@
+<div
+    class="saita"
+    [ngClass]="{ 'is-hover' : isHoverable }"
+>
+    <div
+        class="saita__bubble is-2"
+        *ngIf="speech"
+        [innerHtml]="speech"
+    ></div>
+
+    <div class="saita__bubble is-3" *ngIf="isHoverable">
+        This is my best <a href="my.kaspersky.com">site</a>
+    </div>
+
+    <img
+        class="saita__img bad_santa"
+        [src]="src || '/img/BadSanta-Main.gif'">
+
+    <div class="santa-art"></div>
+</div>
+
