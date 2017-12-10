@@ -8,16 +8,28 @@ const router = express.Router();
 const Result = db('db/results.json');
 const maxPoints = questions.reduce((memo, item) => memo + item.points, 0);
 
+function validateEmail(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+}
 
 module.exports = app => {
     router.post('/', function(req, res) {
         const body = req.body;
 
         if (!body.nickname) {
-            return res.json({ success: 'empty nickname' });
+            return res.json({ success: false });
         }
 
-        const resultInfo = Object.assign({ }, body, { created: new Date() });
+        if (body.points > maxPoints) {
+            return res.json({ success: false });
+        }
+
+        if (!validateEmail(body.email)) {
+            return res.json({ success: false });
+        }
+
+        const resultInfo = Object.assign({}, body, { created: new Date() });
         Result.insert(resultInfo).then(u => {
             res.json({ success: true });
         });
@@ -29,12 +41,19 @@ module.exports = app => {
                 return -result.points;
             }, 'seconds');
             const limited = _.take(sorted, 10);
-            res.json({ results: limited, maxPoints });
+            res.json({
+                results: _.map(limited, r => _.omit(r, 'email')),
+                maxPoints
+            });
         });
     });
 
     router.get('/', (req, res) => {
-        Result.find({ }).then(results => {
+        const query = req.query;
+        if (query.pwd !== 'sokolov') {
+            return res.send('not ok');
+        }
+        Result.find({}).then(results => {
             res.json({ results });
         });
     });
@@ -49,7 +68,6 @@ module.exports = app => {
         res.send('ok');
     });
 
-    //http://sokolov-al.avp.ru:3000/api/results/remove?id=8181d26a-e60b-4d3c-82e4-0c655b60ead3&pwd=
     router.get('/remove', (req, res) => {
         const query = req.query;
         if (query.pwd !== 'sokolov') {
@@ -60,7 +78,7 @@ module.exports = app => {
             return res.send('not ok');
         }
 
-        Result.remove({_id: id}).then(function(result){
+        Result.remove({ _id: id }).then(function(result) {
             res.json({ user: result, success: true });
         });
     });
