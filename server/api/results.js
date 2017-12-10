@@ -23,7 +23,7 @@ module.exports = app => {
         const body = req.body;
 
         if (isPrivateMode && (!req.cookies[privateCookie] || req.cookies[privateCookie] !== modeHelper.privateCookieValue)) {
-            return res.json({ success: true });
+            return res.json({ success: false });
         }
 
         if (!body.nickname || body.points > maxPoints || !validateEmail(body.email)) {
