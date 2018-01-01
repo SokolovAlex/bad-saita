@@ -93,16 +93,6 @@ module.exports = app => {
         });
     });
 
-    router.get('/cleardb', (req, res) => {
-        const query = req.query;
-        if (query.pwd !== 'sokolov') {
-            return res.send('not ok');
-        }
-        const pathToDb = 'db/results.json';
-        //fs.writeFileSync(pathToDb, '[]');
-        res.send('ok');
-    });
-
     router.get('/privatemode', (req, res) => {
         const query = req.query;
         if (query.pwd !== 'sokolov') {
@@ -110,17 +100,6 @@ module.exports = app => {
         }
         isPrivateMode = !isPrivateMode;
         res.json({ isPrivateMode });
-    });
-
-    router.get('/privatemodehard', (req, res) => {
-        const query = req.query;
-        if (query.pwd !== 'sokolov') {
-            return res.send('not ok');
-        }
-        //const hardPrivate = modeHelper.togglePrivateHardMode();
-        //isPrivateMode = hardPrivate ? true : isPrivateMode;
-        //res.json({ hardPrivate });
-        res.send('ok');
     });
 
     router.get('/setcookie', (req, res) => {
